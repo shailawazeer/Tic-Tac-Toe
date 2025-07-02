@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('background.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+}
+header {
+    display: grid;
+    gap: 10px;
+    height: fit-content;
+    width: 100%;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+#title {
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: fit-content;
+    padding: 8px;
+    grid-area: 1 / 1 / 2 / 2;
+}
+#title h1 {
+    font-size: 1em;
+    color: white;
+}
+#title #logo {
+    height: 2em;
+    width: 2em;
+}
+#controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: fit-content;
+    padding: 15px;
+    grid-area: 1 / 2 / 2 / 3;
+    justify-self: end;
+}
+.control-button {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    background-color: #3c6382;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.control-button:hover {
+    background-color: #487ba0; 
+    transform: scale(1.03);     
+}
+.icon {
+    height: 2em;
+    width: 2em;
+}
+#p1 , #p2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    justify-self: center;
+}
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 0;
+    margin: 40px;
+}   
+
+.cell {
+    position: relative;
+    border: 2px solid white;
+    background-color: transparent;
+    animation-delay: calc(var(--i) * 0.1s); 
+}
+
+/* Remove outer borders */
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+    border-bottom: none;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+    border-left: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+    border-right: none;
+}
+
+/*X and O classes*/
+
+.cell.x::before,
+.cell.x::after {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 8px;
+    background: #e94141;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    border-radius: 4px;
+}
+
+.cell.x::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cell.x::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.cell.o::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 8px solid #0086f4;
+    border-radius: 50%;
+    background: transparent;
+}
+
+/*dialog styles*/
+dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    border: none;
+    border-radius: 12px;
+    padding: 30px 25px;
+    background: #2d3436;
+    color: #fff;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    width: 320px;
+    text-align: center;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+dialog h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+dialog label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: 500;
+}
+
+dialog input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.dialog-buttons button {
+    background-color: #0984e3;
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dialog-buttons button:hover {
+    background-color: #74b9ff;
+}

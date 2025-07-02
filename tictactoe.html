@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Tic Tac Toe</title>
+    <link rel="icon" href="src/logo.png" type="image/png">
+    <script src="tictactoe.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id="title">        
+            <img src="icon.png" alt="tic-tac-toe" id="logo">
+            <h1>Tic-Tac-Toe Battle</h1>
+        </div>
+        <div id="controls">
+            <button class="control-button" onclick="dialog.showModal()"> Change Players</button>
+            <button class="control-button" onclick="GameFlow.play()"> Replay</button>
+        </div>
+        <div id="p1"></div>
+        <div id="p2"></div>
+    </header>
+    <main>
+        <div class="gameboard">
+            <div class="cell" data-index="0" style="--i:0"></div>
+            <div class="cell" data-index="1" style="--i:1"></div>
+            <div class="cell" data-index="2" style="--i:2"></div>
+            <div class="cell" data-index="3" style="--i:3"></div>
+            <div class="cell" data-index="4" style="--i:4"></div>
+            <div class="cell" data-index="5" style="--i:5"></div>
+            <div class="cell" data-index="6" style="--i:6"></div>
+            <div class="cell" data-index="7" style="--i:7"></div>
+            <div class="cell" data-index="8" style="--i:8"></div>
+        </div>
+    </main>
+    <dialog id="nameDialog">
+        <form method="dialog" id="playerForm">
+        <h2>Enter Player Names</h2>
+
+        <label for="player1">Player 1 (O)</label>
+        <input type="text" id="player1" name="player1" required placeholder="Player 1 name">
+
+        <label for="player2">Player 2 (X)</label>
+        <input type="text" id="player2" name="player2" required placeholder="Player 2 name">
+
+        <div class="dialog-buttons">
+            <button type="submit">Start Game</button>
+        </div>
+    </form>
+    </dialog>
+    <dialog id="winnerDialog" style="padding: 30px; border: none; border-radius: 10px; text-align: center;">
+        <h2 id="winnerMessage" style="margin-bottom: 20px;"></h2>
+        <p style="margin: 10px;"></p>
+        <button onclick="winnerDialog.close();GameFlow.play()" style="padding: 10px 20px; border: none; background-color: #3c6382; color: white; border-radius: 8px; font-size: 1rem;">OK</button>
+    </dialog>
+</body>
+</html>
