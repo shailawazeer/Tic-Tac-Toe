@@ -12,7 +12,7 @@ A classic Tic-Tac-Toe game built with vanilla JavaScript, HTML, and CSS. Simple,
 
 ## 🎯 How to Play
 
-1. Open `index.html` in your browser
+1. Open `tictactoe.html` in your browser
 2. Enter both player names in the dialog
 3. Player 1 (X) goes first, then Player 2 (O)
 4. Click any empty cell to place your mark
